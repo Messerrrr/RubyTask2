@@ -1,0 +1,54 @@
+<h1>CargoRequest#index</h1>
+
+    <table>
+  <thead>
+    <tr>
+      <th><%= link_to "ID" %></th>
+      <th><%= link_to "First Name" %></th>
+      <th><%= link_to "Last Name" %></th>
+      <th><%= link_to "Middle Name" %></th>
+      <th><%= link_to "Phone"  %></th>
+      <th><%= link_to "Email" %></th>
+      <th><%= link_to "Weight"%></th>
+      <th><%= link_to "Length" %></th>
+      <th><%= link_to "Width"%></th>
+      <th><%= link_to "Height"%></th>
+      <th><%= link_to "Origin"%></th>
+      <th><%= link_to "Destination"%></th>
+      <th><%= link_to "Status"%></th>
+      <th><%= link_to "Created At", cargo_requests_path(sort_by: 'created_at', sort_order: toggle_order('created_at')) %></th>
+      <th><%= link_to "Updated At"%></th>
+       <th><%= link_to "Price", cargo_requests_path(sort_by: 'price', sort_order: toggle_order('price')) %></th>
+      <th><%= link_to "Distance", cargo_requests_path(sort_by: 'distance', sort_order: toggle_order('distance')) %></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= paginate @cargo_requests %>
+  <% unless @cargo_requests.nil?%>
+     <% @cargo_requests.each do |cargo_request| %>
+      <tr>
+        <td><a href="/cargo_requests/<%= cargo_request.id %>"> <%= cargo_request.id %> </a></td>
+        <td><%= cargo_request.firstname %></td>
+        <td><%= cargo_request.lastname %></td>
+        <td><%= cargo_request.middlename %></td>
+        <td><%= cargo_request.phone %></td>
+        <td><%= cargo_request.email %></td>
+        <td><%= cargo_request.weight %></td>
+        <td><%= cargo_request.length %></td>
+        <td><%= cargo_request.width %></td>
+        <td><%= cargo_request.height %></td>
+        <td><%= cargo_request.origin %></td>
+        <td><%= cargo_request.destination %></td>
+        <td><%= cargo_request.status %></td>
+        <td><%= cargo_request.created_at %></td>
+        <td><%= cargo_request.updated_at %></td>
+        <td><%= cargo_request.price %></td>
+        <td><%= cargo_request.distance %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+    </table>
+
+
+    <%= link_to "On main page", root_path %>

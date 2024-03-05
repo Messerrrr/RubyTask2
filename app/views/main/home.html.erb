@@ -1,0 +1,25 @@
+<h1>Main#home</h1>
+<% if user_signed_in? %>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+<%= link_to "Edit profile", edit_user_registration_path %>
+
+<div>
+  <%= link_to "New request", new_cargo_request_path %>
+  <%= link_to "All your requests", cargo_requests_path %>
+</div>
+<br>
+<div>
+  <p>your profile picture</p>
+  <%= image_tag current_user.avatar.url if current_user.avatar? %>
+</div>
+
+
+
+<% else %>
+<%= link_to "Sign in", new_user_session_path %>
+
+<%= link_to "Sign up", new_user_registration_path %>
+
+<%= link_to "Admin", admin_root_path %>
+<% end %>

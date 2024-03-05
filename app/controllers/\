@@ -1,0 +1,33 @@
+require_relative '../cargo.rb'
+
+class CargoRequestsController < ApplicationController
+  def index
+    @cargo_requests = CargoRequest.find_by(user: current_user)
+  end
+  def show
+    @cargo_request = CargoRequest.find(params[:id])
+  end
+  def new
+    @cargo_request = CargoRequest.new
+  end
+  def create
+    cargo_instance = Cargo.new(cargo_params[:weight].to_f, cargo_params[:length].to_f, cargo_params[:width].to_f, cargo_params[:height].to_f, cargo_params[:origin], cargo_params[:destination])
+    result = cargo_instance.calculate_price
+    cargo_params[:distance] = result[:distance]
+    cargo_params[:price] = result[:price]
+    cargo_params[:user] = current_user
+    @cargo_request = CargoRequest.new(cargo_params)
+    if  @cargo_request.save
+      redirect_to @cargo_request
+    else
+      render :new, status: :unprocessable_entity
+    end
+
+  end
+
+    private
+    def cargo_params
+      params.require(:cargo_request).permit(:firstname, :lastname, :middlename, :phone, :email, :weight, :length, :width, :height, :origin, :destination)
+    end
+
+end

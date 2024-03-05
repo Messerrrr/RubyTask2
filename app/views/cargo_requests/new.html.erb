@@ -1,0 +1,62 @@
+<h3>Create Request</h3>
+
+<%= form_with model: @cargo_request, url: { action:"create" } do |f| %>
+<div>
+<label>Имя</label>
+<%= f.text_field :firstname %>
+</div>
+
+<div>
+<label>Фамилия</label>
+<%= f.text_field :lastname %>
+</div>
+
+<div>
+<label>Отчество</label>
+<%= f.text_field :middlename %>
+</div>
+
+<div>
+<label>Номер телефона</label>
+<%= f.text_field :phone %>
+</div>
+
+<div>
+<label>Email</label>
+<%= f.text_field :email %>
+</div>
+
+<div>
+<label>Вес груза</label>
+<%= f.text_field :weight %>
+</div>
+
+<div>
+<label>Длина груза</label>
+<%= f.text_field :length %>
+</div>
+
+<div>
+<label>Ширина груза</label>
+<%= f.text_field :width %>
+</div>
+
+<div>
+<label>Высота груза</label>
+<%= f.text_field :height %>
+</div>
+
+<div>
+<label>Пункт отправления</label>
+<%= f.text_field :origin %>
+</div>
+
+<div>
+<label>Пункт назначения</label>
+<%= f.text_field :destination %>
+</div>
+
+<%= f.submit %>
+
+
+<% end %>

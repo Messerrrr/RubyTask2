@@ -1,0 +1,71 @@
+<div>
+<label>Имя</label>
+<%= @cargo_request.firstname %>
+</div>
+
+<div>
+<label>Фамилия</label>
+<%= @cargo_request.lastname %>
+</div>
+
+<div>
+<label>Отчество</label>
+<%= @cargo_request.middlename %>
+</div>
+
+<div>
+<label>Номер телефона</label>
+<%=  @cargo_request.phone %>
+</div>
+
+<div>
+<label>Email</label>
+<%= @cargo_request.email %>
+</div>
+
+<div>
+<label>Вес груза</label>
+<%= @cargo_request.weight %>
+</div>
+
+<div>
+<label>Длина груза</label>
+<%= @cargo_request.length %>
+</div>
+
+<div>
+<label>Ширина груза</label>
+<%= @cargo_request.width %>
+</div>
+
+<div>
+<label>Высота груза</label>
+<%= @cargo_request.height %>
+</div>
+
+<div>
+<label>Пункт отправления</label>
+<%= @cargo_request.origin %>
+</div>
+
+<div>
+<label>Пункт назначения</label>
+<%= @cargo_request.destination %>
+</div>
+
+<div>
+<label>Цена</label>
+<%= @cargo_request.price %>
+</div>
+
+<div>
+<label>Путь</label>
+<%= @cargo_request.distance %>
+</div>
+
+<div>
+<label>Статус</label>
+<%= @cargo_request.status %>
+</div>
+
+<%=link_to "All requests", cargo_requests_path %>
