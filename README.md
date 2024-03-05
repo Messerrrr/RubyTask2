@@ -1,5 +1,9 @@
 # README
 
+Выполнено до п.6 части 3. Тестирование второй части не произведено.
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
